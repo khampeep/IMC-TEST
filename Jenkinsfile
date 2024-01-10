@@ -21,8 +21,8 @@ pipeline {
                 withCredentials(
                 [usernamePassword(
                     credentialsId: 'khampeep',
-                    passwordVariable: 'gitlabPassword',
-                    usernameVariable: 'gitlabUser'
+                    passwordVariable: 'githubPassword',
+                    usernameVariable: 'githubUser'
                 )])
                 {
                 sh "docker login ghcr.io -u ${env.githubUser} -p ${env.githubPassword}"
