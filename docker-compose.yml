@@ -1,0 +1,25 @@
+version: '3'
+services:
+  mydb:
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=kptest123
+      - MYSQL_DATABASE=db01
+      - MYSQL_USER=kptest
+      - MYSQL_PASSWORD=kptest123
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+
+  # docker compose up -d
+  myweb:
+    image: phpmyadmin
+    environment:
+      - PMA_HOST=mydb
+    ports:
+      - 9093:80
+  myapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 9094:80
