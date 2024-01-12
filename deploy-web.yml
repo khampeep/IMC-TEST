@@ -15,6 +15,7 @@ spec:
       containers:
         - name: user08-hello-world-server
           image: ghcr.io/khampeep/kp-virus
+          imagePullPolicy: Always
           ports:
             - containerPort: 80
 ---
@@ -33,3 +34,4 @@ spec:
       port: 8888
       targetPort: 80
   type: ClusterIP
+#####KhP
