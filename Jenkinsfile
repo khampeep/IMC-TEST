@@ -41,11 +41,11 @@ pipeline {
                 script {
                     try {
                             sh "kubectl delete -f deploy-web.yml" 
-                         } catch (e){}
-                            sh "echo can not delete" 
-                        }  
+                    } catch (e){
+                        sh "echo can not delete" 
+                    }  
                     sh "kubectl apply -f deploy-web.yml"
-                }
+                }   
             }
         }
     }
