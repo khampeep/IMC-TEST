@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: khp-hello-world
+  name: user08-hello-world
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: khp-hello-world
+      app: user08-hello-world
   template:
     metadata:
       labels:
-        app: khp-hello-world
+        app: user08-hello-world
     spec:
       containers:
-        - name: khp-hello-world-server
+        - name: user08-hello-world-server
           image: ghcr.io/khampeep/kp-virus
           ports:
             - containerPort: 80
@@ -21,15 +21,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: khp-hello-world-service
+  name: user08-hello-world-service
   labels:
-    app: khp-hello-world-service
+    app: user08-hello-world-service
 spec:
   selector:
-    app: khp-hello-world
+    app: user08-hello-world
   ports:
     - name: http
       protocol: TCP
-      port: 8081
+      port: 8888
       targetPort: 80
   type: ClusterIP
